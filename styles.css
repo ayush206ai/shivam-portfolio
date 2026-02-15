@@ -788,10 +788,10 @@ html {
     font-size: 1.5rem;
     color: #00d2ff;
     margin-top: 15px;
-}
-
-/* === MOBILE RESPONSIVE === */
+}/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
+
+    /* Hero */
     .hero-section {
         padding: 80px 20px 60px;
         min-height: 70vh;
@@ -811,23 +811,56 @@ html {
         padding: 0 10px;
     }
 
+    /* Sections */
     .section {
-        padding: 60px 5%;
+        padding: 80px 20px;
+        position: relative;
+        z-index: 5; /* ensures content above background */
+    }
+
+    .section-header {
+        gap: 15px;
     }
 
     .section-header h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        text-align: center;
     }
 
+    /* ABOUT TEXT */
+    .about-section p {
+        font-size: 1rem;
+        line-height: 1.8;
+        padding: 0 20px;
+        text-align: left;
+    }
+
+    /* PROJECT GRID */
     .work-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .work-card {
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     .work-img {
-        aspect-ratio: 1;
+        width: 100%;
+        min-height: 220px;   /* 🔑 prevents collapse */
+        height: auto;
+        display: block;
     }
 
+    .work-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* Skills */
     .skills-capsules {
         gap: 12px;
     }
@@ -837,6 +870,7 @@ html {
         padding: 10px 16px;
     }
 
+    /* Software icons */
     .software-icons {
         gap: 15px;
     }
@@ -847,6 +881,7 @@ html {
         font-size: 1.1rem;
     }
 
+    /* Navbar */
     #navbar ul {
         gap: 20px;
     }
@@ -855,6 +890,7 @@ html {
         font-size: 1rem;
     }
 
+    /* VR visor / UI elements */
     .vr-visor {
         width: 90%;
         height: 280px;
@@ -884,59 +920,10 @@ html {
         width: 50px;
     }
 
+    /* Background blur */
     .nebula-1,
     .nebula-2,
     .nebula-3 {
         filter: blur(80px);
     }
-}
-
-@media (max-width: 480px) {
-    .hero-section h1 {
-        font-size: 1.8rem;
-    }
-
-    .work-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section-header {
-        gap: 15px;
-    }
-}
-/* ============================= */
-/* MOBILE FIXES */
-/* ============================= */
-
-@media (max-width: 768px) {
-
-    .about-section p {
-        font-size: 1rem;
-        line-height: 1.8;
-        padding: 0 20px;   /* adds side spacing */
-        text-align: left;  /* easier to read on phone */
-    }
-
-    .section {
-        padding: 80px 0;   /* adds vertical breathing space */
-    }
-
-    .section-header h3 {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-
-}
-@media (max-width: 768px) {
-
-    .section {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .section p {
-        line-height: 1.8;
-        font-size: 1rem;
-    }
-
 }
