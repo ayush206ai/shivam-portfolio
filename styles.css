@@ -926,4 +926,35 @@ html {
     .nebula-3 {
         filter: blur(80px);
     }
+   /* ===== FIX MOBILE BACKGROUND OVERLAY ISSUE ===== */
+
+/* Background layers */
+.stars,
+.background,
+.nebula,
+.nebula-1,
+.nebula-2,
+.nebula-3,
+canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
 }
+
+/* Foreground content */
+#navbar,
+.section,
+.work-grid {
+    position: relative;
+    z-index: 5;
+}
+
+/* Safety */
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+}
+
