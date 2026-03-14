@@ -441,6 +441,7 @@ html {
     position: relative;
     width: 100%;
     aspect-ratio: 4 / 5;
+    min-height: 220px;
     overflow: hidden;
     margin-bottom: 15px;
     background: #000;
@@ -459,23 +460,33 @@ html {
 }
 
 .view-full {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(3px);
-    color: #00d2ff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    opacity: 0;
-    z-index: 10;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    text-shadow: 0 0 15px #00d2ff;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #00d2ff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;   /* important */
+}
+
+/* Desktop hover */
+.work-card:hover .view-full {
+    opacity: 1;
+}
+
+/* Mobile always visible */
+@media (max-width: 768px) {
+    .view-full {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 
 .work-card:hover .view-full {
@@ -790,7 +801,6 @@ html {
     margin-top: 15px;
 }/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-
     /* Hero */
     .hero-section {
         padding: 80px 20px 60px;
@@ -926,7 +936,8 @@ html {
     .nebula-3 {
         filter: blur(80px);
     }
-   /* ===== FIX MOBILE BACKGROUND OVERLAY ISSUE ===== */
+
+    /* ===== FIX MOBILE BACKGROUND OVERLAY ISSUE ===== */
 
 /* Background layers */
 .stars,
@@ -938,7 +949,7 @@ html {
 canvas {
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -947,7 +958,7 @@ canvas {
 .section,
 .work-grid {
     position: relative;
-    z-index: 10;
+    z-index: 5;
 }
 
 /* Safety */
@@ -957,5 +968,9 @@ body {
 }
 
 }
-
-
+@media (max-width: 768px) {
+  .section {
+    opacity: 1;
+    transform: none;
+  }
+}
